@@ -1,10 +1,10 @@
 const express = require('express');
 
+const {signUp} = require('../controller/usuarios');
+
 const rotas = express();
 
-rotas.get('/',(req,res) => {
-    res.send('tudo ok');
-})
+rotas.post('/usuario', signUp)
 
 
 module.exports = rotas
