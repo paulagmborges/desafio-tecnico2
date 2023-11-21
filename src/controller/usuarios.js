@@ -59,7 +59,7 @@ const login = async (req, res) => {
   "update usuarios SET ultimo_login = CURRENT_TIMESTAMP where id = $1",
   [usuarioLogado.id]);
     
-   const token = jwt.sign({ id: usuarioLogado.id }, senhaJwt, { expiresIn: "1h", });
+   const token = jwt.sign({ id: usuarioLogado.id }, senhaJwt, { expiresIn: "30m", });
     
     return res.status(200).json({ usuario: usuarioLogado, token});
 
