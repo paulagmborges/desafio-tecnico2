@@ -9,3 +9,6 @@ create database desafio_tec_escribo;
     telefone varchar(15),
     data_criacao TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
   );
+
+    alter table usuarios
+    add column ultimo_login TIMESTAMP;

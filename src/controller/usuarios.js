@@ -55,6 +55,9 @@ const login = async (req, res) => {
     
    const { senha: _, ...usuarioLogado } = procurarUsuario.rows[0];
 
+  await pool.query(
+  "update usuarios SET ultimo_login = CURRENT_TIMESTAMP where id = $1",
+  [usuarioLogado.id]);
     
    const token = jwt.sign({ id: usuarioLogado.id }, senhaJwt, { expiresIn: "1h", });
     
